@@ -6,7 +6,7 @@
 /*   By: muribe-l <muribe-l@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:54:12 by muribe-l          #+#    #+#             */
-/*   Updated: 2024/04/18 13:38:56 by muribe-l         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:19:46 by muribe-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	send(int pid, char *msg)
 
 	while (*msg)
 	{
-		i = 0;
+		i = 7;
 		c = *msg;
-		while (i++ < 8)
+		while (i-- >= 0)
 		{
 			if ((c >> i) & 1)
 			{
@@ -33,7 +33,7 @@ static void	send(int pid, char *msg)
 				ft_printf("0");
 				kill(pid, SIGUSR1);
 			}
-			usleep(10);
+			usleep(100);
 		}
 		ft_printf(" ");
 		msg++;
