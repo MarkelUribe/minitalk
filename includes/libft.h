@@ -6,7 +6,7 @@
 /*   By: muribe-l <muribe-l@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 15:15:24 by muribe-l          #+#    #+#             */
-/*   Updated: 2024/04/16 09:47:38 by muribe-l         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:11:01 by muribe-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <limits.h>
+#include <signal.h>
 
 int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
