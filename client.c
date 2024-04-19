@@ -24,16 +24,10 @@ static void	send(int pid, char *msg)
 		while (i-- >= 0)
 		{
 			if ((c >> i) & 1)
-			{
-				ft_printf("1");
 				kill(pid, SIGUSR2);
-			}
 			else
-			{
-				ft_printf("0");
 				kill(pid, SIGUSR1);
-			}
-			usleep(100);
+			usleep(150);
 		}
 		ft_printf(" ");
 		msg++;

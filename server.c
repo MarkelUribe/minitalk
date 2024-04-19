@@ -29,23 +29,18 @@ void	decode()
 
 	i = 7;
 	c = 0;
-	while (i >= 0)
+	while (i-- >= 0)
 	{
 		pause();
-		ft_printf("%d", g_bit);
 		g_bit = g_bit << i;
 		c = c | g_bit;
-		i--;
 	}
 	ft_printf("%c", c);
 }
 
 int	main(void)
 {
-	pid_t	pid;
-
-	pid = getpid();
-	ft_printf("%i\n", pid);
+	ft_printf("%i\n", getpid());
 	signal(SIGUSR1, get_signal);
 	signal(SIGUSR2, get_signal);
 	while (1)
