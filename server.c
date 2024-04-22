@@ -6,7 +6,7 @@
 /*   By: muribe-l <muribe-l@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:48:40 by muribe-l          #+#    #+#             */
-/*   Updated: 2024/04/18 16:18:19 by muribe-l         ###   ########.fr       */
+/*   Updated: 2024/04/22 15:52:43 by muribe-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static void	get_signal(int signal)
 void	decode()
 {
 	int		i;
-	char	c;
+	unsigned char		c;
 
-	i = 7;
+	i = 8;
 	c = 0;
 	while (i-- >= 0)
 	{
@@ -35,7 +35,7 @@ void	decode()
 		g_bit = g_bit << i;
 		c = c | g_bit;
 	}
-	ft_printf("%c", c);
+	write(1, &c, 1);
 }
 
 int	main(void)
