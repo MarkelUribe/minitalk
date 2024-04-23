@@ -6,7 +6,7 @@
 #    By: muribe-l <muribe-l@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/11 12:41:15 by muribe-l          #+#    #+#              #
-#    Updated: 2024/04/23 19:45:55 by muribe-l         ###   ########.fr        #
+#    Updated: 2024/04/23 20:50:03 by muribe-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ SSRV := server.c
 SCLT := client.c
 
 ODIR = ./obj
-SOBJ = $(ODIR)/$(SSRV:.c=.o)
-COBJ = $(ODIR)/$(SCLT:.c=.o)
+SOBJ = $(SSRV:.c=.o)
+COBJ = $(SCLT:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -o2 -Iincludes
@@ -26,26 +26,25 @@ RM = rm -rf
 LIBFTNAME = libft.a
 LIBFTDIR = ./libs/libft
 
-all: $(CNAME) $(SNAME)
+all: $(ODIR) $(CNAME) $(SNAME)
 
-vpath %.o $(OBJS_DIR)
-
-%.o: %.c
+$(ODIR):
 	mkdir -p $(ODIR)
-	$(CC) $(CFLAGS) -c $< -o $(ODIR)/$@
 
+$(ODIR)/%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(SNAME): $(SOBJ)
+$(SNAME): $(addprefix $(ODIR)/, $(SOBJ))
 	make -C $(LIBFTDIR) all
-	$(CC) $(CFLAGS) $(SOBJ) $(LIBFTDIR)/$(LIBFTNAME) -o $(SNAME)
+	$(CC) $(CFLAGS) $^ $(LIBFTDIR)/$(LIBFTNAME) -o $@
 
-$(CNAME): $(COBJ)
+$(CNAME): $(addprefix $(ODIR)/, $(COBJ))
 	make -C $(LIBFTDIR) all
-	$(CC) $(CFLAGS) $(COBJ) $(LIBFTDIR)/$(LIBFTNAME) -o $(CNAME)
+	$(CC) $(CFLAGS) $^ $(LIBFTDIR)/$(LIBFTNAME) -o $@
 
 clean:
 	make fclean -C $(LIBFTDIR)
-	$(RM) $(ODIR)/$(SOBJ) $(ODIR)/$(COBJ)
+	$(RM) $(addprefix $(ODIR)/, $(SOBJ)) $(addprefix $(ODIR)/, $(COBJ))
 
 fclean: clean
 	$(RM) $(SNAME) $(CNAME)
