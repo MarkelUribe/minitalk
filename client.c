@@ -6,7 +6,7 @@
 /*   By: muribe-l <muribe-l@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:54:12 by muribe-l          #+#    #+#             */
-/*   Updated: 2024/04/22 15:55:20 by muribe-l         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:15:22 by muribe-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	send(int pid, char *msg)
 {
-	int		i;
+	int				i;
 	unsigned char	c;
 
 	while (*msg)
@@ -27,8 +27,8 @@ static void	send(int pid, char *msg)
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);
-			usleep(75);
-			usleep(75);
+			usleep(50);
+			usleep(50);
 		}
 		msg++;
 	}

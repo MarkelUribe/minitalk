@@ -6,7 +6,7 @@
 /*   By: muribe-l <muribe-l@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:48:40 by muribe-l          #+#    #+#             */
-/*   Updated: 2024/04/22 15:52:43 by muribe-l         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:06:41 by muribe-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static void	get_signal(int signal)
 		g_bit = 1;
 }
 
-void	decode()
+void	decode(void)
 {
-	int		i;
-	unsigned char		c;
+	int				i;
+	unsigned char	c;
 
 	i = 8;
 	c = 0;
